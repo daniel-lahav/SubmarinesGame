@@ -1,0 +1,794 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MyBoardArrangement">
+
+    <LinearLayout
+        android:layout_width="409dp"
+        android:layout_height="729dp"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="1dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="84dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnBackToAddPlayer"
+                android:layout_width="80dp"
+                android:layout_height="50dp"
+                android:layout_gravity="left"
+                android:layout_weight="1"
+                android:text="Back" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/MyBoardTitle"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_marginLeft="20px"
+            android:layout_marginTop="20px"
+            android:layout_marginRight="20px"
+            android:layout_marginBottom="20px"
+            android:gravity="center"
+            android:text="TextView"
+            android:textSize="40dp" />
+
+        <androidx.gridlayout.widget.GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="406dp"
+            android:layout_marginLeft="10px"
+            android:layout_marginRight="10px"
+            android:layout_marginBottom="20px"
+            android:layoutDirection="ltr"
+            app:columnCount="9"
+            app:rowCount="9">
+
+            <ImageButton
+                android:id="@+id/btn00"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:src="@drawable/emptysubmarinesquare"
+                app:layout_column="0"
+                app:layout_row="0" />
+
+
+            <ImageButton
+                android:id="@+id/btn01"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:src="@drawable/emptysubmarinesquare"
+                app:layout_column="1"
+                app:layout_row="0" />
+
+
+            <ImageButton
+                android:id="@+id/btn02"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:src="@drawable/emptysubmarinesquare"
+                app:layout_column="2"
+                app:layout_row="0" />
+
+
+            <ImageButton
+                android:id="@+id/btn03"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:src="@drawable/emptysubmarinesquare"
+                app:layout_column="3"
+                app:layout_row="0" />
+
+
+            <ImageButton
+                android:id="@+id/btn04"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:src="@drawable/emptysubmarinesquare"
+                app:layout_column="4"
+                app:layout_row="0" />
+
+
+            <ImageButton
+                android:id="@+id/btn05"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:src="@drawable/emptysubmarinesquare"
+                app:layout_column="5"
+                app:layout_row="0" />
+
+
+            <ImageButton
+                android:id="@+id/btn06"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:src="@drawable/emptysubmarinesquare"
+                app:layout_column="6"
+                app:layout_row="0" />
+
+
+            <ImageButton
+                android:id="@+id/btn07"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:src="@drawable/emptysubmarinesquare"
+                app:layout_column="7"
+                app:layout_row="0" />
+
+
+            <ImageButton
+                android:id="@+id/btn08"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:src="@drawable/emptysubmarinesquare"
+                app:layout_column="8"
+                app:layout_row="0" />
+
+
+            <ImageButton
+                android:id="@+id/btn10"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:src="@drawable/emptysubmarinesquare"
+                app:layout_column="0"
+                app:layout_row="1" />
+
+
+            <ImageButton
+                android:id="@+id/btn11"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:src="@drawable/emptysubmarinesquare"
+                app:layout_column="1"
+                app:layout_row="1" />
+
+
+            <ImageButton
+                android:id="@+id/btn12"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:src="@drawable/emptysubmarinesquare"
+                app:layout_column="2"
+                app:layout_row="1" />
+
+
+            <ImageButton
+                android:id="@+id/btn13"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:src="@drawable/emptysubmarinesquare"
+                app:layout_column="3"
+                app:layout_row="1" />
+
+
+            <ImageButton
+                android:id="@+id/btn14"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:src="@drawable/emptysubmarinesquare"
+                app:layout_column="4"
+                app:layout_row="1" />
+
+
+            <ImageButton
+                android:id="@+id/btn15"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:src="@drawable/emptysubmarinesquare"
+                app:layout_column="5"
+                app:layout_row="1" />
+
+
+            <ImageButton
+                android:id="@+id/btn16"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:src="@drawable/emptysubmarinesquare"
+                app:layout_column="6"
+                app:layout_row="1" />
+
+
+            <ImageButton
+                android:id="@+id/btn17"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:src="@drawable/emptysubmarinesquare"
+                app:layout_column="7"
+                app:layout_row="1" />
+
+
+            <ImageButton
+                android:id="@+id/btn18"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:src="@drawable/emptysubmarinesquare"
+                app:layout_column="8"
+                app:layout_row="1" />
+
+
+            <ImageButton
+                android:id="@+id/btn20"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:src="@drawable/emptysubmarinesquare"
+                app:layout_column="0"
+                app:layout_row="2" />
+
+
+            <ImageButton
+                android:id="@+id/btn21"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:src="@drawable/emptysubmarinesquare"
+                app:layout_column="1"
+                app:layout_row="2" />
+
+
+            <ImageButton
+                android:id="@+id/btn22"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:src="@drawable/emptysubmarinesquare"
+                app:layout_column="2"
+                app:layout_row="2" />
+
+
+            <ImageButton
+                android:id="@+id/btn23"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:src="@drawable/emptysubmarinesquare"
+                app:layout_column="3"
+                app:layout_row="2" />
+
+
+            <ImageButton
+                android:id="@+id/btn24"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:src="@drawable/emptysubmarinesquare"
+                app:layout_column="4"
+                app:layout_row="2" />
+
+
+            <ImageButton
+                android:id="@+id/btn25"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:src="@drawable/emptysubmarinesquare"
+                app:layout_column="5"
+                app:layout_row="2" />
+
+
+            <ImageButton
+                android:id="@+id/btn26"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:src="@drawable/emptysubmarinesquare"
+                app:layout_column="6"
+                app:layout_row="2" />
+
+
+            <ImageButton
+                android:id="@+id/btn27"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:src="@drawable/emptysubmarinesquare"
+                app:layout_column="7"
+                app:layout_row="2" />
+
+
+            <ImageButton
+                android:id="@+id/btn28"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:src="@drawable/emptysubmarinesquare"
+                app:layout_column="8"
+                app:layout_row="2" />
+
+
+            <ImageButton
+                android:id="@+id/btn30"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:src="@drawable/emptysubmarinesquare"
+                app:layout_column="0"
+                app:layout_row="3" />
+
+
+            <ImageButton
+                android:id="@+id/btn31"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:src="@drawable/emptysubmarinesquare"
+                app:layout_column="1"
+                app:layout_row="3" />
+
+
+            <ImageButton
+                android:id="@+id/btn32"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:src="@drawable/emptysubmarinesquare"
+                app:layout_column="2"
+                app:layout_row="3" />
+
+
+            <ImageButton
+                android:id="@+id/btn33"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:src="@drawable/emptysubmarinesquare"
+                app:layout_column="3"
+                app:layout_row="3" />
+
+
+            <ImageButton
+                android:id="@+id/btn34"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:src="@drawable/emptysubmarinesquare"
+                app:layout_column="4"
+                app:layout_row="3" />
+
+
+            <ImageButton
+                android:id="@+id/btn35"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:src="@drawable/emptysubmarinesquare"
+                app:layout_column="5"
+                app:layout_row="3" />
+
+
+            <ImageButton
+                android:id="@+id/btn36"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:src="@drawable/emptysubmarinesquare"
+                app:layout_column="6"
+                app:layout_row="3" />
+
+
+            <ImageButton
+                android:id="@+id/btn37"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:src="@drawable/emptysubmarinesquare"
+                app:layout_column="7"
+                app:layout_row="3" />
+
+
+            <ImageButton
+                android:id="@+id/btn38"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:src="@drawable/emptysubmarinesquare"
+                app:layout_column="8"
+                app:layout_row="3" />
+
+
+            <ImageButton
+                android:id="@+id/btn40"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:src="@drawable/emptysubmarinesquare"
+                app:layout_column="0"
+                app:layout_row="4" />
+
+
+            <ImageButton
+                android:id="@+id/btn41"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:src="@drawable/emptysubmarinesquare"
+                app:layout_column="1"
+                app:layout_row="4" />
+
+
+            <ImageButton
+                android:id="@+id/btn42"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:src="@drawable/emptysubmarinesquare"
+                app:layout_column="2"
+                app:layout_row="4" />
+
+
+            <ImageButton
+                android:id="@+id/btn43"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:src="@drawable/emptysubmarinesquare"
+                app:layout_column="3"
+                app:layout_row="4" />
+
+
+            <ImageButton
+                android:id="@+id/btn44"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:src="@drawable/emptysubmarinesquare"
+                app:layout_column="4"
+                app:layout_row="4" />
+
+
+            <ImageButton
+                android:id="@+id/btn45"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:src="@drawable/emptysubmarinesquare"
+                app:layout_column="5"
+                app:layout_row="4" />
+
+
+            <ImageButton
+                android:id="@+id/btn46"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:src="@drawable/emptysubmarinesquare"
+                app:layout_column="6"
+                app:layout_row="4" />
+
+
+            <ImageButton
+                android:id="@+id/btn47"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:src="@drawable/emptysubmarinesquare"
+                app:layout_column="7"
+                app:layout_row="4" />
+
+
+            <ImageButton
+                android:id="@+id/btn48"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:src="@drawable/emptysubmarinesquare"
+                app:layout_column="8"
+                app:layout_row="4" />
+
+
+            <ImageButton
+                android:id="@+id/btn50"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:src="@drawable/emptysubmarinesquare"
+                app:layout_column="0"
+                app:layout_row="5" />
+
+
+            <ImageButton
+                android:id="@+id/btn51"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:src="@drawable/emptysubmarinesquare"
+                app:layout_column="1"
+                app:layout_row="5" />
+
+
+            <ImageButton
+                android:id="@+id/btn52"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:src="@drawable/emptysubmarinesquare"
+                app:layout_column="2"
+                app:layout_row="5" />
+
+
+            <ImageButton
+                android:id="@+id/btn53"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:src="@drawable/emptysubmarinesquare"
+                app:layout_column="3"
+                app:layout_row="5" />
+
+
+            <ImageButton
+                android:id="@+id/btn54"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:src="@drawable/emptysubmarinesquare"
+                app:layout_column="4"
+                app:layout_row="5" />
+
+
+            <ImageButton
+                android:id="@+id/btn55"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:src="@drawable/emptysubmarinesquare"
+                app:layout_column="5"
+                app:layout_row="5" />
+
+
+            <ImageButton
+                android:id="@+id/btn56"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:src="@drawable/emptysubmarinesquare"
+                app:layout_column="6"
+                app:layout_row="5" />
+
+
+            <ImageButton
+                android:id="@+id/btn57"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:src="@drawable/emptysubmarinesquare"
+                app:layout_column="7"
+                app:layout_row="5" />
+
+
+            <ImageButton
+                android:id="@+id/btn58"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:src="@drawable/emptysubmarinesquare"
+                app:layout_column="8"
+                app:layout_row="5" />
+
+
+            <ImageButton
+                android:id="@+id/btn60"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:src="@drawable/emptysubmarinesquare"
+                app:layout_column="0"
+                app:layout_row="6" />
+
+
+            <ImageButton
+                android:id="@+id/btn61"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:src="@drawable/emptysubmarinesquare"
+                app:layout_column="1"
+                app:layout_row="6" />
+
+
+            <ImageButton
+                android:id="@+id/btn62"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:src="@drawable/emptysubmarinesquare"
+                app:layout_column="2"
+                app:layout_row="6" />
+
+
+            <ImageButton
+                android:id="@+id/btn63"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:src="@drawable/emptysubmarinesquare"
+                app:layout_column="3"
+                app:layout_row="6" />
+
+
+            <ImageButton
+                android:id="@+id/btn64"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:src="@drawable/emptysubmarinesquare"
+                app:layout_column="4"
+                app:layout_row="6" />
+
+
+            <ImageButton
+                android:id="@+id/btn65"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:src="@drawable/emptysubmarinesquare"
+                app:layout_column="5"
+                app:layout_row="6" />
+
+
+            <ImageButton
+                android:id="@+id/btn66"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:src="@drawable/emptysubmarinesquare"
+                app:layout_column="6"
+                app:layout_row="6" />
+
+
+            <ImageButton
+                android:id="@+id/btn67"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:src="@drawable/emptysubmarinesquare"
+                app:layout_column="7"
+                app:layout_row="6" />
+
+
+            <ImageButton
+                android:id="@+id/btn68"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:src="@drawable/emptysubmarinesquare"
+                app:layout_column="8"
+                app:layout_row="6" />
+
+
+            <ImageButton
+                android:id="@+id/btn70"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:src="@drawable/emptysubmarinesquare"
+                app:layout_column="0"
+                app:layout_row="7" />
+
+
+            <ImageButton
+                android:id="@+id/btn71"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:src="@drawable/emptysubmarinesquare"
+                app:layout_column="1"
+                app:layout_row="7" />
+
+
+            <ImageButton
+                android:id="@+id/btn72"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:src="@drawable/emptysubmarinesquare"
+                app:layout_column="2"
+                app:layout_row="7" />
+
+
+            <ImageButton
+                android:id="@+id/btn73"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:src="@drawable/emptysubmarinesquare"
+                app:layout_column="3"
+                app:layout_row="7" />
+
+
+            <ImageButton
+                android:id="@+id/btn74"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:src="@drawable/emptysubmarinesquare"
+                app:layout_column="4"
+                app:layout_row="7" />
+
+
+            <ImageButton
+                android:id="@+id/btn75"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:src="@drawable/emptysubmarinesquare"
+                app:layout_column="5"
+                app:layout_row="7" />
+
+
+            <ImageButton
+                android:id="@+id/btn76"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:src="@drawable/emptysubmarinesquare"
+                app:layout_column="6"
+                app:layout_row="7" />
+
+
+            <ImageButton
+                android:id="@+id/btn77"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:src="@drawable/emptysubmarinesquare"
+                app:layout_column="7"
+                app:layout_row="7" />
+
+
+            <ImageButton
+                android:id="@+id/btn78"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:src="@drawable/emptysubmarinesquare"
+                app:layout_column="8"
+                app:layout_row="7" />
+
+
+            <ImageButton
+                android:id="@+id/btn80"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:src="@drawable/emptysubmarinesquare"
+                app:layout_column="0"
+                app:layout_row="8" />
+
+
+            <ImageButton
+                android:id="@+id/btn81"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:src="@drawable/emptysubmarinesquare"
+                app:layout_column="1"
+                app:layout_row="8" />
+
+
+            <ImageButton
+                android:id="@+id/btn82"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:src="@drawable/emptysubmarinesquare"
+                app:layout_column="2"
+                app:layout_row="8" />
+
+
+            <ImageButton
+                android:id="@+id/btn83"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:src="@drawable/emptysubmarinesquare"
+                app:layout_column="3"
+                app:layout_row="8" />
+
+
+            <ImageButton
+                android:id="@+id/btn84"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:src="@drawable/emptysubmarinesquare"
+                app:layout_column="4"
+                app:layout_row="8" />
+
+
+            <ImageButton
+                android:id="@+id/btn85"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:src="@drawable/emptysubmarinesquare"
+                app:layout_column="5"
+                app:layout_row="8" />
+
+
+            <ImageButton
+                android:id="@+id/btn86"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:src="@drawable/emptysubmarinesquare"
+                app:layout_column="6"
+                app:layout_row="8" />
+
+
+            <ImageButton
+                android:id="@+id/btn87"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:src="@drawable/emptysubmarinesquare"
+                app:layout_column="7"
+                app:layout_row="8" />
+
+
+            <ImageButton
+                android:id="@+id/btn88"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:src="@drawable/emptysubmarinesquare"
+                app:layout_column="8"
+                app:layout_row="8" />
+
+        </androidx.gridlayout.widget.GridLayout>
+
+        <Button
+            android:id="@+id/btnMyBoardPlay"
+            android:layout_width="360dp"
+            android:layout_height="130dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="20px"
+            android:layout_marginRight="20px"
+            android:layout_marginBottom="20px"
+            android:gravity="center"
+            android:text="PLAY" />
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

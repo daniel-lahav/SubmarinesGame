@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".HomeActivity">
+
+    <LinearLayout
+        android:layout_width="409dp"
+        android:layout_height="729dp"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="1dp">
+
+        <TextView
+            android:id="@+id/Title"
+            android:layout_width="match_parent"
+            android:layout_height="89dp"
+            android:layout_marginTop="80px"
+            android:gravity="center"
+            android:text="צוללות :)"
+            android:textSize="40dp" />
+
+        <Button
+            android:id="@+id/btnPlay"
+            android:layout_width="match_parent"
+            android:layout_height="87dp"
+            android:layout_marginTop="75px"
+            android:text="Play" />
+
+        <Button
+            android:id="@+id/btnMusic"
+            android:layout_width="match_parent"
+            android:layout_height="87dp"
+            android:layout_marginTop="50px"
+            android:text="Music" />
+
+        <Button
+            android:id="@+id/btnSettings"
+            android:layout_width="match_parent"
+            android:layout_height="87dp"
+            android:layout_marginTop="50px"
+            android:text="Settings" />
+
+        <Button
+            android:id="@+id/btnLeaderboard"
+            android:layout_width="match_parent"
+            android:layout_height="87dp"
+            android:layout_marginTop="50px"
+            android:text="Leaderboard" />
+
+        <Button
+            android:id="@+id/btnQuit"
+            android:layout_width="218dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center_horizontal"
+            android:layout_marginTop="100px"
+            android:layout_marginBottom="50px"
+            android:gravity="bottom|center"
+            android:text="Quit Game" />
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

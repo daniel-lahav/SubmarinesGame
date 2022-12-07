@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddPlayer">
+
+    <LinearLayout
+        android:layout_width="409dp"
+        android:layout_height="729dp"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="1dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="103dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btnBackToHome"
+                    android:layout_width="40dp"
+                    android:layout_height="80dp"
+                    android:layout_gravity="left"
+                    android:layout_marginRight="800px"
+                    android:layout_weight="1"
+                    android:text="Back" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="108dp"
+            android:layout_marginTop="100px"
+            android:layoutDirection="ltr"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/etPlayer1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_marginLeft="10px"
+                android:layout_weight="1"
+                android:ems="10"
+                android:gravity="center"
+                android:hint="Player 1 (you)"
+                android:inputType="textPersonName" />
+
+            <EditText
+                android:id="@+id/etPlayer2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_marginRight="10px"
+                android:layout_weight="1"
+                android:ems="10"
+                android:gravity="center"
+                android:hint="Player 2 (opponent)"
+                android:inputType="textPersonName" />
+
+        </LinearLayout>
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="107dp"
+            android:checkedButton="@id/radioBtn4Subs">
+
+            <RadioButton
+                android:id="@+id/radioBtn4Subs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30px"
+                android:layout_marginRight="30px"
+                android:layoutDirection="ltr"
+                android:text="4 Submarines" />
+
+            <RadioButton
+                android:id="@+id/radioBtn7Subs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30px"
+                android:layout_marginRight="30px"
+                android:layoutDirection="ltr"
+                android:text="7 Submarines" />
+        </RadioGroup>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="119dp"
+            android:layoutDirection="ltr"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnContact1"
+                android:layout_width="70dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10px"
+                android:layout_marginRight="5px"
+                android:layout_weight="1"
+                android:text="Add Contact Player 1" />
+
+            <Button
+                android:id="@+id/btnContact2"
+                android:layout_width="70dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="5px"
+                android:layout_marginRight="10px"
+                android:layout_weight="1"
+                android:text="Add Contact Player 2" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/btnAddPlayerPlay"
+                android:layout_width="231dp"
+                android:layout_height="109dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="200px"
+                android:text="PLAY!"
+                android:textSize="40sp" />
+        </LinearLayout>
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
