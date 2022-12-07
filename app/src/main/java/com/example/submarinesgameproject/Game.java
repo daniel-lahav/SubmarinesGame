@@ -87,7 +87,7 @@ public class Game extends AppCompatActivity implements View.OnClickListener {
 //                popupMat[i][j] = (ImageView) findViewById(resId);
 //
 //            }
-//        }
+//        } d
     }
 
     @Override
