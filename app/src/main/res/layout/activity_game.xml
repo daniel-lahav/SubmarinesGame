@@ -88,6 +88,7 @@
             android:layout_height="400dp"
             android:layout_marginLeft="20px"
             android:layout_marginRight="20px"
+            android:layoutDirection="ltr"
             app:columnCount="9"
             app:rowCount="9">
 

@@ -80,9 +80,10 @@ public class MyBoardArrangement extends AppCompatActivity implements View.OnClic
                 intent.putExtra("DATA1", name1);
                 intent.putExtra("DATA2", name2);
                 intent.putExtra("subNum", subNum);
-                intent.putExtra("PlayerBoard", playerManager.getMat());
+                int [][] matTemp= playerManager.getMat();
+                intent.putExtra("PlayerBoard", matTemp);
                 startActivity(intent);
-//                    this.finish();
+                    this.finish();
                 break;
             case R.id.btnBackToAddPlayer:
                 finish();
@@ -118,7 +119,8 @@ public class MyBoardArrangement extends AppCompatActivity implements View.OnClic
                                 myBoard[tempi][tempj + h].setImageResource(R.drawable.greensquare);
                             }
                             playerManager.placeSub(new Position(tempi, tempj, false), subSize + 1);
-                            if (tempi + subSize < 9) {
+                            if (tempi + subSize < 9 && playerManager.getNum(tempi+subSize, tempj)<=0)
+                            {
                                 myBoard[tempi + subSize][tempj].setImageResource(R.drawable.emptysubmarinesquare);
                             }
                             subSize--;
@@ -130,14 +132,15 @@ public class MyBoardArrangement extends AppCompatActivity implements View.OnClic
                                 myBoard[tempi + h][tempj].setImageResource(R.drawable.greensquare);
                             }
                             playerManager.placeSub(new Position(tempi, tempj, true), subSize + 1);
-                            if (tempj + subSize < 9) {
+                            if (tempj + subSize < 9&& playerManager.getNum(tempi, tempj + subSize)<=0)
+                            {
                                 myBoard[tempi][tempj + subSize].setImageResource(R.drawable.emptysubmarinesquare);
                             }
                             subSize--;
                             clickCount = 0;
 
                         }
-//                        Toast.makeText(getApplicationContext(),playerManager.show().toString(),Toast.LENGTH_LONG).show();
+                       Toast.makeText(getApplicationContext(),playerManager.show().toString(),Toast.LENGTH_LONG).show();
 
                     }
 

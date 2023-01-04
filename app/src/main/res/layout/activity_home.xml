@@ -60,5 +60,12 @@
             android:gravity="bottom|center"
             android:text="Quit Game" />
 
+        <Switch
+            android:id="@+id/switchMusic"
+            android:layout_width="match_parent"
+            android:layout_height="59dp"
+            android:text="MUSIC"
+            android:textSize="30sp" />
+
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

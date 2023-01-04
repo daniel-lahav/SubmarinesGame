@@ -103,7 +103,7 @@ public class GameManager
         boolean ok=true;
         for (int i=0; i<subSize;i++)
         {
-            if(this.board[x+i][y]!=0)
+            if(this.board[x][y+i]!=0)
                 ok=false;
         }
         return ok;
@@ -114,7 +114,7 @@ public class GameManager
         boolean ok=true;
         for (int i=0; i<subSize;i++)
         {
-            if(this.board[x][y+i]!=0)
+            if(this.board[x+i][y]!=0)
                 ok=false;
         }
         return ok;

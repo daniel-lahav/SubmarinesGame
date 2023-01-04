@@ -42,6 +42,8 @@ public class Game extends AppCompatActivity implements View.OnClickListener {
             playerBoard =(int[][]) xtras.get("PlayerBoard");
         }
 
+        Toast.makeText(getApplicationContext(),playerBoard.toString(),Toast.LENGTH_LONG).show();
+
         btnBackToMyBoard = (Button) findViewById(R.id.btnBackToMyBoard);
         btnBackToMyBoard.setOnClickListener(this);
 
@@ -60,7 +62,7 @@ public class Game extends AppCompatActivity implements View.OnClickListener {
         gManager.randomBoard();
         board = new ImageButton[gManager.getSize()][gManager.getSize()];
 
-//        popupMat= new ImageButton[gManager.getSize()][gManager.getSize()];
+        popupMat= new ImageView[gManager.getSize()][gManager.getSize()];
 
         tvPlayer1.setText(name1 + " (you)");
         tvPlayer2.setText(name2 + " (opponent)");
@@ -78,6 +80,8 @@ public class Game extends AppCompatActivity implements View.OnClickListener {
                 board[i][j].setOnClickListener(this);
             }
         }
+
+
 //        str = "";
 //        resId = 0;
 //        for (int i = 0; i < playerBoard.length; i++) {
@@ -87,7 +91,7 @@ public class Game extends AppCompatActivity implements View.OnClickListener {
 //                popupMat[i][j] = (ImageView) findViewById(resId);
 //
 //            }
-//        } d
+//        }
     }
 
     @Override
