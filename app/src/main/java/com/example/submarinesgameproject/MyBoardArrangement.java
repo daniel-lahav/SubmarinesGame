@@ -21,7 +21,7 @@ public class MyBoardArrangement extends AppCompatActivity implements View.OnClic
     private GameManager playerManager;
     public Game myBoardActivity;
 
-    private int subSize = 3;
+    private int subSize = 4;
     private int tempi, tempj;
     private int clickCount;
 
@@ -80,8 +80,7 @@ public class MyBoardArrangement extends AppCompatActivity implements View.OnClic
                 intent.putExtra("DATA1", name1);
                 intent.putExtra("DATA2", name2);
                 intent.putExtra("subNum", subNum);
-                int [][] matTemp= playerManager.getMat();
-                intent.putExtra("PlayerBoard", matTemp);
+                intent.putExtra("PlayerManager", playerManager);
                 startActivity(intent);
                     this.finish();
                 break;
@@ -89,7 +88,7 @@ public class MyBoardArrangement extends AppCompatActivity implements View.OnClic
                 finish();
                 break;
             default:
-                if (subSize >= 0) {
+                if (subSize > 0) {
                     if (clickCount == 0) {
                         for (int i = 0; i < myBoard.length; i++) {
                             for (int j = 0; j < myBoard.length; j++) {
@@ -98,43 +97,43 @@ public class MyBoardArrangement extends AppCompatActivity implements View.OnClic
                                     tempi = i;
                                     tempj = j;
                                     if (playerManager.canPlaceHorizontal(i, j, subSize)) {
-                                        myBoard[i][j].setImageResource(R.drawable.greensquare);
+                                        myBoard[i][j].setImageResource(R.drawable.yellowsquare);
                                         clickCount = 1;
-                                        myBoard[i][j + subSize].setImageResource(R.drawable.greensquare);
+                                        myBoard[i][j + subSize-1].setImageResource(R.drawable.yellowsquare);
 
                                     }
 
                                     if (playerManager.canPlaceVertical(i, j, subSize)) {
-                                        myBoard[i][j].setImageResource(R.drawable.greensquare);
+                                        myBoard[i][j].setImageResource(R.drawable.yellowsquare);
                                         clickCount = 1;
-                                        myBoard[i + subSize][j].setImageResource(R.drawable.greensquare);
+                                        myBoard[i + subSize-1][j].setImageResource(R.drawable.yellowsquare);
 
                                     }
                                 }
                             }
                         }
                     } else {
-                        if (view.getId() == myBoard[tempi][tempj + subSize].getId()) {
+                        if (view.getId() == myBoard[tempi][tempj + subSize-1].getId()) {
                             for (int h = 0; h < subSize; h++) {
                                 myBoard[tempi][tempj + h].setImageResource(R.drawable.greensquare);
                             }
-                            playerManager.placeSub(new Position(tempi, tempj, false), subSize + 1);
-                            if (tempi + subSize < 9 && playerManager.getNum(tempi+subSize, tempj)<=0)
+                            playerManager.placeSub(new Position(tempi, tempj, false), subSize);
+                            if (tempi + subSize-1 < 9 && playerManager.getNum(tempi+subSize-1, tempj)<=0)
                             {
-                                myBoard[tempi + subSize][tempj].setImageResource(R.drawable.emptysubmarinesquare);
+                                myBoard[tempi + subSize-1][tempj].setImageResource(R.drawable.emptysubmarinesquare);
                             }
                             subSize--;
                             clickCount = 0;
 
                         }
-                        if (view.getId() == myBoard[tempi + subSize][tempj].getId()) {
+                        if (view.getId() == myBoard[tempi + subSize-1][tempj].getId()) {
                             for (int h = 0; h < subSize; h++) {
                                 myBoard[tempi + h][tempj].setImageResource(R.drawable.greensquare);
                             }
-                            playerManager.placeSub(new Position(tempi, tempj, true), subSize + 1);
-                            if (tempj + subSize < 9&& playerManager.getNum(tempi, tempj + subSize)<=0)
+                            playerManager.placeSub(new Position(tempi, tempj, true), subSize );
+                            if (tempj + subSize-1 < 9&& playerManager.getNum(tempi, tempj + subSize-1)<=0)
                             {
-                                myBoard[tempi][tempj + subSize].setImageResource(R.drawable.emptysubmarinesquare);
+                                myBoard[tempi][tempj + subSize-1].setImageResource(R.drawable.emptysubmarinesquare);
                             }
                             subSize--;
                             clickCount = 0;

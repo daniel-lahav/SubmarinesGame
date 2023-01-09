@@ -21,8 +21,8 @@ public class Game extends AppCompatActivity implements View.OnClickListener {
     private ImageButton[][] board;
     private int[][] playerBoard;
     private ImageView[][] popupMat;
-    private GameManager gManager;
-//    public Game gameActivity;
+    private GameManager gManager,playerManager;
+    public Game gameActivity;
     private int subNum;
     private Player player1;
     private Dialog dialog;
@@ -31,7 +31,7 @@ public class Game extends AppCompatActivity implements View.OnClickListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
-
+        GameManager playerManager =new GameManager(gameActivity,subNum);
         Intent in = getIntent();
         if (in != null) {
             Bundle xtras = in.getExtras();
@@ -39,10 +39,12 @@ public class Game extends AppCompatActivity implements View.OnClickListener {
             name1 = xtras.getString("DATA1");
             name2 = xtras.getString("DATA2");
             subNum = (int) xtras.getInt("subNum");
-            playerBoard =(int[][]) xtras.get("PlayerBoard");
+            playerManager= (GameManager) xtras.get("PlayerManager");
         }
 
-        Toast.makeText(getApplicationContext(),playerBoard.toString(),Toast.LENGTH_LONG).show();
+
+        playerManager.setSubNum(subNum);
+        Toast.makeText(getApplicationContext(),playerManager.show(),Toast.LENGTH_LONG).show();
 
         btnBackToMyBoard = (Button) findViewById(R.id.btnBackToMyBoard);
         btnBackToMyBoard.setOnClickListener(this);
@@ -60,6 +62,7 @@ public class Game extends AppCompatActivity implements View.OnClickListener {
 
         gManager = new GameManager(this, subNum);
         gManager.randomBoard();
+
         board = new ImageButton[gManager.getSize()][gManager.getSize()];
 
         popupMat= new ImageView[gManager.getSize()][gManager.getSize()];

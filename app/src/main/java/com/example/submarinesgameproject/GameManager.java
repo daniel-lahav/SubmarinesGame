@@ -2,9 +2,10 @@ package com.example.submarinesgameproject;
 
 import android.widget.Toast;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Random;
-public class GameManager
+public class GameManager implements Serializable
 {
     Random rnd=new Random();
 
@@ -127,7 +128,7 @@ public class GameManager
         {
             for(int j=0; j<this.size; j++)
             {
-                if (canPlaceHorizontal(i,j,subSize))
+                if (canPlaceVertical(i,j,subSize))
                     arrlst.add(new Position(i,j,false));
             }
         }
@@ -135,7 +136,7 @@ public class GameManager
         {
             for(int j=0; j<this.size-subSize; j++)
             {
-                if (canPlaceVertical(i,j,subSize))
+                if (canPlaceHorizontal(i,j,subSize))
                     arrlst.add(new Position(i,j,true));
             }
         }
@@ -153,7 +154,7 @@ public class GameManager
                     {
                         if(0<=p.getX()+k&& p.getX()+k<=8 && 0<=p.getY()+j && p.getY()+j<=8 &&this.board[p.getX()+k][p.getY()+j]==0)
                         {
-                            this.board[p.getX() + k][p.getY() + j] = subSize * (-1);
+                            this.board[p.getX() + k][p.getY() + j] = subSize * -1;
                         }
 
                     }
@@ -173,7 +174,7 @@ public class GameManager
 
                     if(0<=p.getX()+k&& p.getX()+k<=8 && 0<=p.getY()+j && p.getY()+j<=8 &&this.board[p.getX()+k][p.getY()+j]==0)
                     {
-                        this.board[p.getX() + k][p.getY() + j] = subSize * (-1);
+                        this.board[p.getX() + k][p.getY() + j] = subSize * -1;
                     }
 
                 }
@@ -199,4 +200,19 @@ public class GameManager
             return str;
     }
 
+    public int[][] getBoard() {
+        return board;
+    }
+
+    public void setBoard(int[][] board) {
+        this.board = board;
+    }
+
+    public int getSubNum() {
+        return subNum;
+    }
+
+    public void setSubNum(int subNum) {
+        this.subNum = subNum;
+    }
 }
