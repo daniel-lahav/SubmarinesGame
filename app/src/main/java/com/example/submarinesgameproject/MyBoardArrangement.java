@@ -2,15 +2,12 @@ package com.example.submarinesgameproject;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class MyBoardArrangement extends AppCompatActivity implements View.OnClickListener {
     private Button btnMyBoardPlay, btnBackToAddPlayer;
@@ -18,7 +15,7 @@ public class MyBoardArrangement extends AppCompatActivity implements View.OnClic
     private ImageButton[][] myBoard;
     private String name1, name2;
     private int subNum;
-    private GameManager playerManager;
+
     public Game myBoardActivity;
 
     private int subSize = 4;
@@ -26,12 +23,12 @@ public class MyBoardArrangement extends AppCompatActivity implements View.OnClic
     private int clickCount;
 
 
+    private Player player1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_board_arrangement);
-
 
         this.clickCount = 0;
         btnMyBoardPlay = (Button) findViewById(R.id.btnMyBoardPlay);
@@ -48,14 +45,14 @@ public class MyBoardArrangement extends AppCompatActivity implements View.OnClic
             Bundle xtras = in.getExtras();
 
             name1 = xtras.getString("DATA1");
-            name2 = xtras.getString("DATA2");
-            subNum = (int) xtras.getInt("subNum");
+
+            subNum = (int) xtras.getInt("SUBNUM");
 
         }
-
+        player1 = new Player(name1,subNum, UpClass.Size);
         myBoardTitle.setText(name1 + "'s Board");
-        playerManager = new GameManager(myBoardActivity, subNum);
-        myBoard = new ImageButton[playerManager.getSize()][playerManager.getSize()];
+
+        myBoard = new ImageButton[UpClass.Size][UpClass.Size];
         String str = "";
         int resId;
         for (int i = 0; i < myBoard.length; i++) {
@@ -78,9 +75,9 @@ public class MyBoardArrangement extends AppCompatActivity implements View.OnClic
             case R.id.btnMyBoardPlay:
                 Intent intent = new Intent(this, Game.class);
                 intent.putExtra("DATA1", name1);
-                intent.putExtra("DATA2", name2);
-                intent.putExtra("subNum", subNum);
-                intent.putExtra("PlayerManager", playerManager);
+
+                intent.putExtra("SUBNUM", subNum);
+
                 startActivity(intent);
                     this.finish();
                 break;
@@ -96,14 +93,14 @@ public class MyBoardArrangement extends AppCompatActivity implements View.OnClic
                                 if (view.getId() == myBoard[i][j].getId()) {
                                     tempi = i;
                                     tempj = j;
-                                    if (playerManager.canPlaceHorizontal(i, j, subSize)) {
+                                    if (UpClass.canPlaceHorizontal(player1.getPlayerBoard(),i, j, subSize)) {
                                         myBoard[i][j].setImageResource(R.drawable.yellowsquare);
                                         clickCount = 1;
                                         myBoard[i][j + subSize-1].setImageResource(R.drawable.yellowsquare);
 
                                     }
 
-                                    if (playerManager.canPlaceVertical(i, j, subSize)) {
+                                    if (UpClass.canPlaceVertical(player1.getPlayerBoard(),i, j, subSize)) {
                                         myBoard[i][j].setImageResource(R.drawable.yellowsquare);
                                         clickCount = 1;
                                         myBoard[i + subSize-1][j].setImageResource(R.drawable.yellowsquare);
@@ -113,12 +110,12 @@ public class MyBoardArrangement extends AppCompatActivity implements View.OnClic
                             }
                         }
                     } else {
-                        if (view.getId() == myBoard[tempi][tempj + subSize-1].getId()) {
+                        if (tempj + subSize-1 <9 && view.getId() == myBoard[tempi][tempj + subSize-1].getId()) {
                             for (int h = 0; h < subSize; h++) {
                                 myBoard[tempi][tempj + h].setImageResource(R.drawable.greensquare);
                             }
-                            playerManager.placeSub(new Position(tempi, tempj, false), subSize);
-                            if (tempi + subSize-1 < 9 && playerManager.getNum(tempi+subSize-1, tempj)<=0)
+                            UpClass.placeSub(player1.getPlayerBoard(),(new Position(tempi, tempj, false)), subSize);
+                            if ((tempi + subSize-1) < 9 && player1.getNum(tempi+subSize-1, tempj)<=0)
                             {
                                 myBoard[tempi + subSize-1][tempj].setImageResource(R.drawable.emptysubmarinesquare);
                             }
@@ -126,12 +123,12 @@ public class MyBoardArrangement extends AppCompatActivity implements View.OnClic
                             clickCount = 0;
 
                         }
-                        if (view.getId() == myBoard[tempi + subSize-1][tempj].getId()) {
+                        if (tempi + subSize-1 < 9 && view.getId() == myBoard[tempi + subSize-1][tempj].getId()) {
                             for (int h = 0; h < subSize; h++) {
                                 myBoard[tempi + h][tempj].setImageResource(R.drawable.greensquare);
                             }
-                            playerManager.placeSub(new Position(tempi, tempj, true), subSize );
-                            if (tempj + subSize-1 < 9&& playerManager.getNum(tempi, tempj + subSize-1)<=0)
+                            UpClass.placeSub(player1.getPlayerBoard(),new Position(tempi, tempj, true), subSize );
+                            if ((tempj + subSize-1) < 9 && player1.getNum(tempi, tempj + subSize-1)<=0)
                             {
                                 myBoard[tempi][tempj + subSize-1].setImageResource(R.drawable.emptysubmarinesquare);
                             }
@@ -139,7 +136,7 @@ public class MyBoardArrangement extends AppCompatActivity implements View.OnClic
                             clickCount = 0;
 
                         }
-                       Toast.makeText(getApplicationContext(),playerManager.show().toString(),Toast.LENGTH_LONG).show();
+//                       Toast.makeText(getApplicationContext(),playerManager.show().toString(),Toast.LENGTH_LONG).show();
 
                     }
 

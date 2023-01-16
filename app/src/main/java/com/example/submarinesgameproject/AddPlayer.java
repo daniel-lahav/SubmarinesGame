@@ -14,18 +14,23 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
+import android.widget.TextView;
 
 import java.util.Locale;
 
 public class AddPlayer extends AppCompatActivity implements View.OnClickListener {
 
-    private Button btnAddPlayerPlay,btnBackToHome, btnContact1,btnContact2;
+    private Button btnAddPlayerPlay,btnBackToHome, btnContact1;
+    private  Intent intent;
     private RadioButton radioBtn4Subs,radioBtn7Subs;
-    private EditText etPlayer1,etPlayer2;
+    private EditText etPlayer1;
+    private TextView tvPlayer2; //computer
     private String player1,player2;
     private TextToSpeech textToSpeech;
     private static final int RESULTPICK=1;
     private int playerNum;
+
+    private int size=9; //גודל הלוח
 
     @Override
     protected void onCreate(Bundle savedInstanceState)  {
@@ -43,11 +48,13 @@ public class AddPlayer extends AppCompatActivity implements View.OnClickListener
         btnContact1=(Button) findViewById(R.id.btnContact1);
         btnContact1.setOnClickListener(this);
 
-        btnContact2=(Button) findViewById(R.id.btnContact2);
-        btnContact2.setOnClickListener(this);
+    //    btnContact2=(Button) findViewById(R.id.btnContact2);
+     //   btnContact2.setOnClickListener(this);
 
         etPlayer1=(EditText) findViewById(R.id.etPlayer1);
-        etPlayer2 = (EditText) findViewById(R.id.etPlayer2);
+        tvPlayer2 = (TextView) findViewById(R.id.tvPlayer2);
+
+        tvPlayer2.setText("Pola");
 
         radioBtn4Subs=(RadioButton) findViewById(R.id.radioBtn4Subs);
         radioBtn4Subs.setOnClickListener(this);
@@ -80,10 +87,9 @@ public class AddPlayer extends AppCompatActivity implements View.OnClickListener
 
             String phoneName = cursor.getString(phoneIndexName);
 
-            if(this.playerNum==1)
-                etPlayer1.setText(phoneName);
-            else
-                etPlayer2.setText(phoneName);
+
+            etPlayer1.setText(phoneName);
+
         }
     }
 
@@ -92,64 +98,58 @@ public class AddPlayer extends AppCompatActivity implements View.OnClickListener
     @Override
     public void onClick(View view) {
 
-        if(view.getId()==btnAddPlayerPlay.getId())
-        {
-            Intent intent=new Intent(this, MyBoardArrangement.class);
-
-            String name1 = etPlayer1.getText().toString();
-            String name2 =etPlayer2.getText().toString();
-            int subNum;
-            if(radioBtn4Subs.isChecked())
-                subNum=4;
-            else
-                subNum=7;
-            if (name1.length() ==0 || name2.length()==0|| name1.equals(name2)){
-                new AlertDialog.Builder(this)
-                        .setTitle("ERORR")
-                        .setMessage("not a good name")
-                        .setNeutralButton("Ok", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialogInterface, int i) {
-
-                            }
-                        })
-                       .setIcon(R.drawable.error)
-                        .show();
-            }
-            else{
-
-
-                textToSpeech.speak("Enjoy and Good Luck! " + name1 + " and " + name2, TextToSpeech.QUEUE_FLUSH, null);
-
-
-                intent.putExtra("DATA1",name1);
-                intent.putExtra("DATA2", name2);
-                intent.putExtra("subNum",subNum);
-
-                startActivity(intent);
-            }
-        }
-
-
-        if(view.getId()==btnBackToHome.getId())
-            {
-            finish();
-            }
-
         switch (view.getId())
         {
+            case R.id.btnAddPlayerPlay:
+                intent=new Intent(this, MyBoardArrangement.class);
+
+                String name1 = etPlayer1.getText().toString().trim();
+
+
+                String name2 = tvPlayer2.getText().toString().trim();
+                int subNum;
+                if(radioBtn4Subs.isChecked())
+                    subNum=4;
+                else
+                    subNum=7;
+                if (name1.length() ==0 || name1.equals(name2)){
+                    new AlertDialog.Builder(this)
+                            .setTitle("ERORR")
+                            .setMessage("not a good name")
+                            .setNeutralButton("Ok", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
+
+                                }
+                            })
+                            .setIcon(R.drawable.error)
+                            .show();
+                }
+                else{
+
+
+                    textToSpeech.speak("Enjoy and Good Luck! " + name1 , TextToSpeech.QUEUE_FLUSH, null);
+
+
+                    intent.putExtra("DATA1",name1);
+
+                    intent.putExtra("SUBNUM",subNum);
+
+                    startActivity(intent);
+                }
+
+                break;
+            case R.id.btnBackToHome:
+                 finish();
+                 break;
             case R.id.btnContact1:
                 this.playerNum = 1;
-                Intent intent = new Intent(Intent.ACTION_PICK,
+                 intent = new Intent(Intent.ACTION_PICK,
                         ContactsContract.CommonDataKinds.Phone.CONTENT_URI);
                 startActivityForResult(intent, RESULTPICK);
                 break;
-            case R.id.btnContact2:
-                this.playerNum = 2;
-                intent = new Intent(Intent.ACTION_PICK, ContactsContract.CommonDataKinds.Phone.CONTENT_URI);
-                startActivityForResult(intent, RESULTPICK);
-                break;
         }
+
 
 
     }

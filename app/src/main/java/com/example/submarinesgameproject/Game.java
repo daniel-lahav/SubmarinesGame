@@ -6,6 +6,7 @@ import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -21,30 +22,35 @@ public class Game extends AppCompatActivity implements View.OnClickListener {
     private ImageButton[][] board;
     private int[][] playerBoard;
     private ImageView[][] popupMat;
-    private GameManager gManager,playerManager;
+    private GameManager gManager;
     public Game gameActivity;
     private int subNum;
-    private Player player1;
+
     private Dialog dialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
-        GameManager playerManager =new GameManager(gameActivity,subNum);
+
+
         Intent in = getIntent();
         if (in != null) {
             Bundle xtras = in.getExtras();
 
             name1 = xtras.getString("DATA1");
-            name2 = xtras.getString("DATA2");
-            subNum = (int) xtras.getInt("subNum");
-            playerManager= (GameManager) xtras.get("PlayerManager");
+
+            subNum = (int) xtras.getInt("SUBNUM");
+
         }
 
+        this.gManager = new GameManager(this, subNum);
 
-        playerManager.setSubNum(subNum);
-        Toast.makeText(getApplicationContext(),playerManager.show(),Toast.LENGTH_LONG).show();
+        Log.d("******", "after get " + name1);
+
+
+        //---  playerManager.setSubNum(subNum);
+        //--    Toast.makeText(getApplicationContext(),gManager.show(),Toast.LENGTH_LONG).show();
 
         btnBackToMyBoard = (Button) findViewById(R.id.btnBackToMyBoard);
         btnBackToMyBoard.setOnClickListener(this);
@@ -63,13 +69,13 @@ public class Game extends AppCompatActivity implements View.OnClickListener {
         gManager = new GameManager(this, subNum);
         gManager.randomBoard();
 
-        board = new ImageButton[gManager.getSize()][gManager.getSize()];
+        board = new ImageButton[UpClass.Size][UpClass.Size];
 
-        popupMat= new ImageView[gManager.getSize()][gManager.getSize()];
+        popupMat = new ImageView[UpClass.Size][UpClass.Size];
 
-        tvPlayer1.setText(name1 + " (you)");
-        tvPlayer2.setText(name2 + " (opponent)");
-        player1 = new Player(name1, subNum, gManager.getSize());
+        tvPlayer1.setText(name1);
+        tvPlayer2.setText("Pola");
+        // player1 = new Player(name1, subNum, UpClass.Size);
         tvScore1.setText("0");
         tvScore2.setText("0");
 
@@ -147,9 +153,10 @@ public class Game extends AppCompatActivity implements View.OnClickListener {
 //        dialog = new Dialog(this);
 //        dialog.setContentView(R.layout.custom_layout);
 //
-//        dialog.setCancelable(true);
-//
-//        btnDialogBack = (Button) dialog.findViewById(R.id.btnDialogBack);
+//  >   ?   dialog.setCancelable(true);
+
+
+
 //        btnDialogBack.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View view)
@@ -172,3 +179,4 @@ public class Game extends AppCompatActivity implements View.OnClickListener {
 //        dialog.show();
 //  }
 }
+
